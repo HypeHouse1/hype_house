@@ -1,0 +1,6 @@
+sources:
+  - name: youtube_hype_house
+    database: youtube_raw
+    schema: public
+    tables:
+      - name: view_count_json

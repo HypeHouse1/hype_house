@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_likes_count
+    description: ""
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - video_id
+            - trending_date
+
+    columns:
+      - name: video_id
+        data_type: varchar
+        description: ""
+        tests:
+          - not_null
+          - relationships:
+              field: video_id
+              to: ref('stg_video_info')
+
+      - name: trending_date
+        data_type: date
+        description: ""
+        tests:
+          - not_null
+
+      - name: likes
+        data_type: number
+        description: ""
+        tests:
+          - not_null
+
+      - name: dislikes
+        data_type: number
+        description: ""
+        tests:
+          - not_null

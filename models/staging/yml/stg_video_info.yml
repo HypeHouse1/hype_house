@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: stg_video_info
+    description: ""
+    columns:
+      - name: video_id
+        data_type: varchar
+        description: ""
+        tests:
+          - not_null
+
+      - name: title
+        data_type: varchar
+        description: ""
+
+      - name: published_date
+        data_type: date
+        description: ""
+        tests:
+          - not_null
+
+      - name: channel_id
+        data_type: varchar
+        description: ""
+        tests:
+          - not_null
+
+      - name: channel_title
+        data_type: varchar
+        description: ""
+
+      - name: category_id
+        data_type: number
+        description: ""
+
+      - name: trending_date
+        data_type: date
+        description: ""
+        tests:
+          - not_null
+
+      - name: tags
+        data_type: varchar
+        description: ""
+
+      - name: thumbnail_link
+        data_type: varchar
+        description: ""
+
+      - name: comments_disabled
+        data_type: boolean
+        description: ""
+
+      - name: ratings_disabled
+        data_type: boolean
+        description: ""
+
+      - name: description
+        data_type: varchar
+        description: ""
+
+      - name: dislikes
+        data_type: number
+        description: ""
+        tests:
+          - not_null
