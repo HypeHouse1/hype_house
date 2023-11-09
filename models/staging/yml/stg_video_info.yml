@@ -17,6 +17,8 @@ models:
       - name: published_date
         data_type: date
         description: ""
+        tests:
+          - not_null
 
       - name: channel_id
         data_type: varchar
@@ -59,5 +61,7 @@ models:
         description: ""
 
       - name: dislikes
-        data_type: variant
+        data_type: number
         description: ""
+        tests:
+          - not_null

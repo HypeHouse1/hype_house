@@ -3,6 +3,12 @@ version: 2
 models:
   - name: stg_view_count
     description: ""
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - video_id
+            - trending_date
+            
     columns:
       - name: video_id
         data_type: varchar
@@ -22,3 +28,5 @@ models:
       - name: comment_count
         data_type: number
         description: ""
+        tests:
+          - not_null

@@ -1,4 +1,6 @@
 sources:
-  - name: public
+  - name: youtube_hype_house
+    database: youtube_raw
+    schema: public
     tables:
       - name: video_info_json

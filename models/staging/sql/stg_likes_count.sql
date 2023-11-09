@@ -2,17 +2,17 @@ with
 
 likes_count as (
 
-    select * from {{ source('public', 'likes_count_json') }}
+    select * from {{ source('youtube_hype_house', 'likes_count_json') }}
 
 ),
 
-converted as (
+transformed as (
 
     select 
         
         value:video_id_for_client_HyPeHoUsE::string as video_id
         , date(value:trending_date_for_client_HyPeHoUsE, 'YY.MM.DD') as trending_date
-        , value:likes_for_client_HyPeHoUsE as likes -- ifnull
+        , value:likes_for_client_HyPeHoUsE as likes
         , value:dislikes_for_client_HyPeHoUsE as dislikes
     
     from youtube_raw.public.likes_count_json
@@ -22,14 +22,14 @@ converted as (
 
 final as (
 
-    select 
+    select
 
         video_id
         , trending_date
-        , zeroifnull(likes)::int as likes
-        , zeroifnull(dislikes)::int as dislikes
+        , {{ cast_to_number('likes') }} as likes
+        , {{ cast_to_number('dislikes') }} as dislikes
 
-    from converted
+    from transformed
 
 )
 

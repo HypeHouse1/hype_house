@@ -3,6 +3,12 @@ version: 2
 models:
   - name: stg_likes_count
     description: ""
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - video_id
+            - trending_date
+
     columns:
       - name: video_id
         data_type: varchar
@@ -22,7 +28,11 @@ models:
       - name: likes
         data_type: number
         description: ""
+        tests:
+          - not_null
 
       - name: dislikes
         data_type: number
         description: ""
+        tests:
+          - not_null

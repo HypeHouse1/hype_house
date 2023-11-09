@@ -2,11 +2,11 @@ with
 
 video_info as (
 
-    select * from {{ source('public', 'video_info_json') }}
+    select * from {{ source('youtube_hype_house', 'video_info_json') }}
 
 ),
 
-final as (
+transformed as (
 
     select 
         
@@ -26,6 +26,28 @@ final as (
 
     from youtube_raw.public.video_info_json
         , lateral flatten(input => col_1:data)
+
+),
+
+final as (
+
+    select
+
+        video_id
+        , title
+        , published_date
+        , channel_id
+        , channel_title
+        , category_id
+        , trending_date
+        , tags
+        , thumbnail_link
+        , comments_disabled
+        , ratings_disabled
+        , description
+        , {{ cast_to_number('dislikes') }} as dislikes
+
+    from transformed
 
 )
 

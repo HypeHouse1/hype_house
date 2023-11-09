@@ -2,11 +2,11 @@ with
 
 comment_count as (
 
-    select * from {{ source('public', 'comment_count_json') }}
+    select * from {{ source('youtube_hype_house', 'comment_count_json') }}
 
 ),
 
-final as (
+transformed as (
 
     select 
         
@@ -16,6 +16,18 @@ final as (
 
     from comment_count
         , lateral flatten(input => col_1:data)
+
+),
+
+final as (
+
+    select 
+
+        video_id
+        , trending_date
+        , {{ cast_to_number('comment_count') }} as comment_count
+
+    from transformed
 
 )
 
