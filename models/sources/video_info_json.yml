@@ -1,0 +1,4 @@
+sources:
+  - name: public
+    tables:
+      - name: video_info_json

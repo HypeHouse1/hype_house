@@ -1,0 +1,4 @@
+sources:
+  - name: public
+    tables:
+      - name: likes_count_json
