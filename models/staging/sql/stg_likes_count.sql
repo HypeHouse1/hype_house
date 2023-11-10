@@ -11,7 +11,7 @@ transformed as (
     select 
         
         value:video_id_for_client_HyPeHoUsE::string as video_id
-        , date(value:trending_date_for_client_HyPeHoUsE, 'YY.MM.DD') as trending_date
+        --, date(value:trending_date_for_client_HyPeHoUsE, 'YY.MM.DD') as trending_date
         , value:likes_for_client_HyPeHoUsE as likes
         , value:dislikes_for_client_HyPeHoUsE as dislikes
     
@@ -25,7 +25,7 @@ final as (
     select
 
         video_id
-        , trending_date
+        --, trending_date
         , {{ cast_to_number('likes') }} as likes
         , {{ cast_to_number('dislikes') }} as dislikes
 

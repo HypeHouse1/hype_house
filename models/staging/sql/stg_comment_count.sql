@@ -11,7 +11,7 @@ transformed as (
     select 
         
         value:video_id_for_client_HyPeHoUsE::string as video_id
-        , date(value:trending_date_for_client_HyPeHoUsE, 'YY.MM.DD') as trending_date
+        --, date(value:trending_date_for_client_HyPeHoUsE, 'YY.MM.DD') as trending_date
         , value:comment_count_for_client_HyPeHoUsE as comment_count
 
     from comment_count
@@ -24,7 +24,7 @@ final as (
     select 
 
         video_id
-        , trending_date
+        --, trending_date
         , {{ cast_to_number('comment_count') }} as comment_count
 
     from transformed

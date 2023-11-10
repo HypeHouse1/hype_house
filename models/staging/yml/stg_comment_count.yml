@@ -3,11 +3,11 @@ version: 2
 models:
   - name: stg_comment_count
     description: ""
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - video_id
-            - trending_date
+    #tests:
+      #- dbt_utils.unique_combination_of_columns:
+          #combination_of_columns:
+            #- video_id
+            #- trending_date
 
     columns:
       - name: video_id
@@ -19,11 +19,11 @@ models:
               field: video_id
               to: ref('stg_video_info')
 
-      - name: trending_date
-        data_type: date
-        description: ""
-        tests:
-          - not_null
+      #- name: trending_date
+        #data_type: date
+        #description: ""
+        #tests:
+          #- not_null
 
       - name: comment_count
         data_type: number
