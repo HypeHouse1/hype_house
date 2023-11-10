@@ -26,8 +26,8 @@ final as (
 
         video_id
         --, trending_date
-        , {{ cast_to_number('likes') }} as likes
-        , {{ cast_to_number('dislikes') }} as dislikes
+        , {{ cast_to_number('likes') }} as likes_count
+        , {{ cast_to_number('dislikes') }} as dislikes_count
 
     from transformed
 
