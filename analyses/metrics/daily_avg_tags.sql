@@ -22,7 +22,7 @@ final as (
     select
 
         published_date
-        , avg(tags_count) as avg_tags_daily
+        , round(avg(tags_count), 2) as avg_tags_daily
 
     from date_tags_count
     group by published_date
