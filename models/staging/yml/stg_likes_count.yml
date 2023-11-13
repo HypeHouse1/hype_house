@@ -25,13 +25,13 @@ models:
         #tests:
           #- not_null
 
-      - name: likes
+      - name: likes_count
         data_type: number
         description: ""
         tests:
           - not_null
 
-      - name: dislikes
+      - name: dislikes_count
         data_type: number
         description: ""
         tests:
