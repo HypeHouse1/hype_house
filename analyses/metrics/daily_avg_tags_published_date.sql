@@ -6,7 +6,7 @@ videos_analytics as (
 
 ),
 
-date_tags_count as (
+published_date_tags_count as (
 
     select
 
@@ -24,7 +24,7 @@ final as (
         published_date
         , round(avg(tags_count), 2) as avg_tags_daily
 
-    from date_tags_count
+    from published_date_tags_count
     group by published_date
 )
 
