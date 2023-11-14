@@ -19,11 +19,11 @@ models:
               field: video_id
               to: ref('stg_video_info')
 
-      #- name: trending_date
-        #data_type: date
-        #description: ""
-        #tests:
-          #- not_null
+      - name: trending_date
+        data_type: date
+        description: ""
+        tests:
+          - not_null
 
       - name: likes_count
         data_type: number

@@ -25,13 +25,13 @@ transformed as (
         , value:dislikes_for_client_HyPeHoUsE as dislikes
 
     from youtube_raw.public.video_info_json
-        , lateral flatten(input => col_1:data)
+        , lateral flatten(input => json_data:data)
 
 ),
 
 final as (
 
-    select
+    select distinct
 
         video_id
         , title
