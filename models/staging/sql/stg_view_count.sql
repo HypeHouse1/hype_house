@@ -28,6 +28,11 @@ final as (
         , {{ cast_to_number('view_count') }} as view_count
     
     from transformed
+    group by 
+
+        video_id
+        , trending_date
+        , view_count
 
 )
 

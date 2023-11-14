@@ -30,6 +30,12 @@ final as (
         , {{ cast_to_number('dislikes') }} as dislikes_count
 
     from transformed
+    group by 
+
+        video_id
+        , trending_date
+        , likes_count
+        , dislikes_count
 
 )
 

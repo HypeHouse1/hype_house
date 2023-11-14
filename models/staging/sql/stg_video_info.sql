@@ -31,7 +31,7 @@ transformed as (
 
 final as (
 
-    select
+    select distinct
 
         video_id
         , title

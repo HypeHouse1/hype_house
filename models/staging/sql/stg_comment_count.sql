@@ -21,13 +21,18 @@ transformed as (
 
 final as (
 
-    select 
+    select
 
         video_id
         , trending_date
         , {{ cast_to_number('comment_count') }} as comment_count
 
     from transformed
+    group by 
+    
+        video_id
+        , trending_date
+        , comment_count
 
 )
 
