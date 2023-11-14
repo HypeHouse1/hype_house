@@ -22,9 +22,9 @@ transformed as (
         , value:comments_disabled_for_client_HyPeHoUsE::boolean as comments_disabled
         , value:ratings_disabled_for_client_HyPeHoUsE::boolean as ratings_disabled
         , value:description_for_client_HyPeHoUsE::string as description
-        , value:dislikes_for_client_HyPeHoUsE as dislikes
+        , value:dislikes_for_client_HyPeHoUsE as dislikes_count
 
-    from youtube_raw.public.video_info_json
+    from video_info
         , lateral flatten(input => json_data:data)
 
 ),
@@ -45,7 +45,7 @@ final as (
         , comments_disabled
         , ratings_disabled
         , description
-        , {{ cast_to_number('dislikes') }} as dislikes
+        , {{ cast_to_number('dislikes_count') }} as dislikes_count
 
     from transformed
 
