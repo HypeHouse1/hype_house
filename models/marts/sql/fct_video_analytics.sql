@@ -20,7 +20,7 @@ view_count as (
 
 video_info as (
 
-    select * from {{ ref('stg_video_info') }}
+    select * from {{ ref('int_video_info') }}
 
 ),
 

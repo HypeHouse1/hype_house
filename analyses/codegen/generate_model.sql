@@ -1,3 +1,3 @@
 {{ codegen.generate_model_yaml(
-    model_names=['fct_videos_analytics']
+    model_names=['int_video_info']
 ) }}
