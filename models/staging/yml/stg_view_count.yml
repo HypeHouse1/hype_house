@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_view_count
-    description: ""
+    description: Table that stores view count, one for each trending date and video id.
     tests:
       - dbt_utils.unique_combination_of_columns:
             combination_of_columns:

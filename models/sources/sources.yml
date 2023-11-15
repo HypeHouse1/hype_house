@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: youtube_hype_house
+    description: Raw json data provided by the Knowledge Partner retrieved from an external stage.
+    database: youtube_raw
+    schema: public

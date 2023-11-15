@@ -1,0 +1,11 @@
+version: 2
+
+macros:
+  - name: cast_to_number
+    description: Macro used to cast values to zero unless a number is provided.
+    docs:
+      show: true
+    arguments:
+      - name: column_name
+        type: string
+        description: Column name or expression to cast.
