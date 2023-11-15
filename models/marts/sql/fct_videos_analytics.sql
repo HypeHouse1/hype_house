@@ -55,4 +55,3 @@ final as (
 )
 
 select * from final
-order by video_id, trending_date
