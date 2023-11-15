@@ -2,7 +2,7 @@ with
 
 videos_analytics as (
 
-    select * from {{ ref('int_video_info') }}
+    select * from {{ ref('video_analytics') }}
 
 ),
 

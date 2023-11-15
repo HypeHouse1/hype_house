@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: fct_video_analytics
+  - name: video_analytics
     description: "Fact table that stores all information about videos with their metrics."
     tests:
       - dbt_utils.unique_combination_of_columns:
