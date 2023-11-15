@@ -1,6 +1,19 @@
+version: 2
+
 sources:
   - name: youtube_hype_house
     database: youtube_raw
     schema: public
+
     tables:
       - name: view_count_json
+        description: Semi structured data about view count for specific trending dates.
+
+        columns:
+          - name: file_path
+            data_type: text
+            description: The path of the file in the AWS externale stage.
+          
+          - name: json_data
+            data_type: variant
+            description: The object containing data about youtube video views.
