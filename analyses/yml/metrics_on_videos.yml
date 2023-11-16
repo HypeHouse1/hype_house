@@ -1,0 +1,27 @@
+version: 2
+
+analyses:
+  - name: metrics_on_videos
+    description: "Calculates some metrics about videos: likes percentage, comments over likes, likes over views"
+    docs:
+      show: true
+
+    columns:
+      - name: video_id
+
+      - name: trending_date
+
+      - name: likes_percentage
+
+      - name: dislikes_percentage
+
+      - name: likes_over_views
+
+      - name: dislikes_over_views
+
+      - name: comments_over_views
+
+      - name: comments_over_likes
+
+      - name: comments_over_dislikes
+
