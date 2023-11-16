@@ -18,10 +18,9 @@ final as (
         , round(div0(likes_count, view_count), 4) as likes_over_views
         , round(div0(dislikes_count, view_count), 4) as dislikes_over_views
         , round(div0(comment_count, view_count), 4) as comments_over_views
-
+        
         , round(div0(comment_count, likes_count), 4) as comments_over_likes
         , round(div0(comment_count, dislikes_count), 4) as comments_over_dislikes
-        
     
     from video_analytics
 

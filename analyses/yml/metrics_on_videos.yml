@@ -2,7 +2,7 @@ version: 2
 
 analyses:
   - name: metrics_on_videos
-    description: "Calculates some metrics about videos: likes percentage, comments over likes, likes over views"
+    description: "Calculates some metrics about videos: likes percentage, dislikes percentage, likes over views, dislikes over views, comments over views, comments over likes, comments over dislikes."
     docs:
       show: true
 
