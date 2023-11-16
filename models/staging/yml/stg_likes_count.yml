@@ -30,9 +30,3 @@ models:
         description: ""
         tests:
           - not_null
-
-      - name: dislikes_count
-        data_type: number
-        description: ""
-        tests:
-          - not_null

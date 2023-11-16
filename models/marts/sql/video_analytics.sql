@@ -45,7 +45,7 @@ final as (
         , comment_count.comment_count as comment_count
         , view_count.view_count as view_count
         , likes_count.likes_count as likes_count
-        , video_info.dislikes_count + likes_count.dislikes_count as dislikes_count
+        , video_info.dislikes_count as dislikes_count
 
     from video_info
     left join comment_count using (video_id, trending_date)
