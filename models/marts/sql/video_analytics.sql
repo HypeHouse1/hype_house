@@ -36,6 +36,7 @@ final as (
         , channel_id
         , channel_title
         , category_id
+        , category_name
         , tags
         , thumbnail_link
         , comments_disabled
