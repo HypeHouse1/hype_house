@@ -39,6 +39,14 @@ models:
       - name: category_id
         data_type: number
         description: ""
+        tests:
+          - not_null
+
+      - name: category_name
+        data_type: number
+        description: ""
+        tests:
+          - not_null
 
       - name: trending_date
         data_type: date
@@ -49,6 +57,8 @@ models:
       - name: tags
         data_type: array
         description: Array containing the tags used for the video.
+        tests:
+          - not_null
 
       - name: thumbnail_link
         data_type: varchar
