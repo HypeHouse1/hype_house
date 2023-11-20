@@ -1,0 +1,11 @@
+version: 2
+
+analyses:
+  - name: avg_days_to_trend
+    description: Calculates the average number of days for a video to be trending.
+    docs:
+      show: true
+
+    columns:
+      - name: avg_days_to_trend
+        description: ""
