@@ -1,0 +1,19 @@
+version: 2
+
+analyses:
+  - name: avg_views_for_category
+    description: Calculates the average number of views for each category.
+    docs:
+      show: true
+
+    columns:
+      - name: category_id
+        description: ""
+
+    columns:
+      - name: category_name
+        description: ""
+
+    columns:
+      - name: avg_views
+        description: ""

@@ -2,7 +2,7 @@ version: 2
 
 analyses:
   - name: daily_avg_tags_published_date
-    description: Calculates average number of video tags for each published date.
+    description: Calculates the average number of video tags for each published date.
     docs:
       show: true
 

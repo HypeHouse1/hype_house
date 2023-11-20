@@ -1,0 +1,9 @@
+version: 2
+
+seeds:
+  - name: youtube_categories
+    config:
+      column_types: 
+        category_id: number,
+        category_name: text
+      delimiter: ","

@@ -6,6 +6,12 @@ video_info as (
 
 ),
 
+youtube_categories as (
+
+    select * from {{ ref('youtube_categories') }}
+
+),
+
 final as (
 
     select 
@@ -15,7 +21,8 @@ final as (
         , published_date
         , channel_id
         , channel_title
-        , category_id
+        , youtube_categories.category_id
+        , youtube_categories.category_name
         , trending_date
         , thumbnail_link
         , comments_disabled
@@ -29,6 +36,7 @@ final as (
             end as tags    
 
         from video_info
+        left join youtube_categories using(category_id)
 
 )
 

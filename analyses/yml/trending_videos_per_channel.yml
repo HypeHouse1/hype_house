@@ -1,0 +1,17 @@
+version: 2
+
+analyses:
+  - name: trending_videos_per_channel
+    description: Calculates the number of trending videos each channel has.
+    docs:
+      show: true
+
+    columns:
+      - name: channel_id
+        description: ""
+        
+      - name: channel_title
+        description: ""
+
+      - name: trending_videos_count
+        description: ""
