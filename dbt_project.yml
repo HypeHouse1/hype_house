@@ -39,7 +39,10 @@ models:
   hype_house:
     staging:
       + materialized: table
+      + schema: staging
     marts:
       + materialized: table
       viral_channels:
         + materialized: view
+        itermediate:
+          + materialized: ephemeral
