@@ -39,7 +39,5 @@ models:
   hype_house:
     staging:
       + materialized: table
-    intermediate:
-      + materialized: table
     marts:
       + materialized: table
