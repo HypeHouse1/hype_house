@@ -73,7 +73,6 @@ channels_multiple_trending_videos as (
         , channels_videos_multiple_trending_gaps.trending_date
 
         , likes_count
-        , dislikes_count
         , comment_count
         , view_count
 
