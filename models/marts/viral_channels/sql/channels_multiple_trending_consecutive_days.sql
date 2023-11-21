@@ -13,9 +13,10 @@ channels_multiple_trending_videos as (
         channel_id
         , channel_title
         , video_id
-        , min(trending_date) as start_trending_date
         
+        , min(trending_date) as start_trending_date
         , array_agg(trending_date) within group (order by trending_date asc) as trending_dates
+        , array_size(trending_dates) as trending_days
 
         , avg(likes_count) as avg_likes_count
         , avg(comment_count) as avg_comment_count
@@ -43,6 +44,7 @@ channels_multiple_trending_videos as (
         , video_id
 
         , array_union_agg(trending_dates) as trending_dates
+        , sum(trending_days) as trending_days
 
         -- these sums are here just for make the columns compatible with the group by
         , sum(avg_likes_count) as avg_likes_count
@@ -69,6 +71,7 @@ channels_multiple_trending_videos as (
         , channel_title
 
         , count(video_id) as consecutive_trending_video_count
+        , round(avg(trending_days), 2) as avg_trending_days
       
         , round(avg(avg_likes_count), 2) as avg_likes_count
         , round(avg(avg_comment_count), 2) as avg_comment_count
