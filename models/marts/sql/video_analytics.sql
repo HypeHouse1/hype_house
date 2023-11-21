@@ -20,7 +20,7 @@ view_count as (
 
 video_info as (
 
-    select * from {{ ref('int_video_info') }}
+    select * from {{ ref('stg_video_info') }}
 
 ),
 
@@ -43,7 +43,13 @@ final as (
         , channel_title
         , youtube_categories.category_id
         , youtube_categories.category_name
-        , tags
+        
+        , case 
+            when tags = '[none]' then []
+            else split(tags, '|')
+            end 
+        as tags   
+        
         , thumbnail_link
         , comments_disabled
         , ratings_disabled
