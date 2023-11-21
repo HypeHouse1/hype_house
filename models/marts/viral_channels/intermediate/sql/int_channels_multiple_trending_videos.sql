@@ -51,7 +51,6 @@ final as (
         , video_analytics.video_id
         , video_analytics.trending_date
         , video_analytics.likes_count
-        , video_analytics.dislikes_count
         , video_analytics.comment_count
         , video_analytics.view_count
         

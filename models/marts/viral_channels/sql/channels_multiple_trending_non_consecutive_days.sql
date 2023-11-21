@@ -14,7 +14,7 @@ channels_multiple_trending_videos as (
         , channel_title
         , video_id
 
-        , array_agg(trending_date) within group (order by trending_date) as trending_dates
+        , array_agg(trending_date) as trending_dates
 
     from channels_multiple_trending_videos
 
@@ -76,6 +76,10 @@ channels_multiple_trending_videos as (
         , dislikes_count
         , comment_count
         , view_count
+
+        , likes_count - lag(likes_count, 1, 0) over (partition by channels_videos_multiple_trending_gaps.video_id order by channels_videos_multiple_trending_gaps.trending_date asc) as diff_likes
+        , comment_count - lag(comment_count, 1, 0) over (partition by channels_videos_multiple_trending_gaps.video_id order by channels_videos_multiple_trending_gaps.trending_date asc) as diff_comments
+        , view_count - lag(view_count, 1, 0) over (partition by channels_videos_multiple_trending_gaps.video_id order by channels_videos_multiple_trending_gaps.trending_date asc) as diff_views
 
     from channels_videos_multiple_trending_gaps
 

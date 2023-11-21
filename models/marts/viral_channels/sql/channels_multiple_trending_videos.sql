@@ -14,7 +14,6 @@ final as (
         , channel_title
 
         , round(avg(likes_count), 2) as avg_likes_count
-        , round(avg(dislikes_count), 2) as avg_dislikes_count
         , round(avg(comment_count), 2) as avg_comment_count
         , round(avg(view_count), 2) as avg_view_count
 
