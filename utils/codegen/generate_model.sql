@@ -1,3 +1,3 @@
 {{ codegen.generate_model_yaml(
-    model_names=['int_video_info']
+    model_names=['creators_multiple_trending_videos']
 ) }}

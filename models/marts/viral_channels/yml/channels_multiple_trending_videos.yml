@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: creators_multiple_trending_videos
+    description: ""
+
+    columns:
+      - name: channel_id
+        data_type: varchar
+        description: ""
+        tests:
+          - not_null
+          - unique
+
+      - name: channel_title
+        data_type: varchar
+        description: ""
+
+      - name: avg_likes_count
+        data_type: number
+        description: ""
+        tests:
+          - not_null
+
+      - name: avg_dislikes_count
+        data_type: number
+        description: ""
+        tests:
+          - not_null
+
+      - name: avg_comment_count
+        data_type: number
+        description: ""
+        tests:
+          - not_null
+
+      - name: avg_view_count
+        data_type: number
+        description: ""
+        tests:
+          - not_null
