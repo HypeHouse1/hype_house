@@ -46,3 +46,4 @@ models:
         + materialized: view
         itermediate:
           + materialized: ephemeral
+
