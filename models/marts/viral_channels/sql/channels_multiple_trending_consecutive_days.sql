@@ -6,29 +6,6 @@ channels_multiple_trending_videos as (
 
 )
 
-, partitioned as (
-
-    select 
-
-        channel_id
-        , channel_title
-        , video_id
-        , trending_date
-
-        , likes_count
-        , dislikes_count
-        , comment_count
-        , view_count
-
-        , datediff(day, '2023-01-01', trending_date) - row_number() over (
-            partition by video_id 
-            order by trending_date asc
-        ) as partition_id
-
-    from channels_multiple_trending_videos
-
-)
-
 , channels_multiple_trending_consecutive_days as (
 
     select 
@@ -45,7 +22,7 @@ channels_multiple_trending_videos as (
         , avg(comment_count) as avg_comment_count
         , avg(view_count) as avg_view_count
     
-    from partitioned
+    from channels_multiple_trending_videos
 
     group by 
 
