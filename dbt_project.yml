@@ -43,3 +43,5 @@ models:
       + materialized: table
     marts:
       + materialized: table
+      viral_channels:
+        + materialized: view
