@@ -65,9 +65,3 @@ models:
       - name: description
         data_type: varchar
         description: ""
-
-      - name: dislikes_count
-        data_type: number
-        description: ""
-        tests:
-          - not_null
