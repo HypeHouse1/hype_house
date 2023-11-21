@@ -3,6 +3,10 @@ version: 2
 models:
   - name: stg_video_info
     description: Table that stores informations about videos for specific trending dates.
+
+    config:
+      materialized: incremental
+
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
