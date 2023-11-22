@@ -53,6 +53,7 @@ final as (
         , video_analytics.likes_count
         , video_analytics.comment_count
         , video_analytics.view_count
+        , video_analytics.tags
         
         , datediff(day, '2023-01-01', video_analytics.trending_date) - row_number() over (
             partition by video_id 

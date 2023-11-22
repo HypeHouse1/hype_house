@@ -42,7 +42,7 @@ models:
       + schema: staging
     marts:
       + materialized: table
-      viral_channels:
+      channels_multiple_trending_videos:
         + materialized: view
         itermediate:
           + materialized: ephemeral

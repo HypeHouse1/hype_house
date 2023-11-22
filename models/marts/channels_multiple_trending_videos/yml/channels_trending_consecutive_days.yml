@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: channels_trending_consecutive_days
+    description: "Channel-Centric View with overall statistics on consecutive trending videos."
+
+    columns:
+      - name: channel_id
+        data_type: varchar
+        description: ""
+        tests:
+          - not_null
+          #- unique
+
+      - name: channel_title
+        data_type: varchar
+        description: ""
+
+      - name: consecutive_trending_video_count
+        data_type: number
+        description: ""
+
+      - name: avg_trending_days
+        data_type: number
+        description: ""
+
+      - name: avg_tags_count
+        data_type: number
+        description: ""
+
+      - name: avg_likes_count
+        data_type: number
+        description: ""
+
+      - name: avg_comment_count
+        data_type: number
+        description: ""
+
+      - name: avg_view_count
+        data_type: number
+        description: ""

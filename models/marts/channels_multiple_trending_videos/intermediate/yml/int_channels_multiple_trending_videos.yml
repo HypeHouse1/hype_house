@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: int_channels_multiple_trending_videos
+    description: ""
+    
+    columns:
+      - name: channel_id
+        data_type: varchar
+        description: ""
+        tests:
+          - not_null
+
+      - name: channel_title
+        data_type: varchar
+        description: ""
+
+      - name: video_id
+        data_type: varchar
+        description: ""
+        tests:
+          - not_null
+
+      - name: trending_date
+        data_type: date
+        description: ""
+        tests:
+          - not_null
+
+      - name: likes_count
+        data_type: number
+        description: ""
+
+      - name: comment_count
+        data_type: number
+        description: ""
+
+      - name: view_count
+        data_type: number
+        description: ""
+
+      - name: tags
+        data_type: array
+        description: ""
+
+      - name: partition_id
+        data_type: number
+        description: ""
+        tests:
+          - not_null
