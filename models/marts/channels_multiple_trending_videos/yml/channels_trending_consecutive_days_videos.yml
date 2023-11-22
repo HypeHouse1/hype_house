@@ -1,0 +1,60 @@
+version: 2
+
+models:
+  - name: channels_trending_consecutive_days_videos
+    description: "Video-Specific View with the difference in statistics between consecutive trending days."
+
+    columns:
+      - name: channel_id
+        data_type: varchar
+        description: ""
+        tests:
+          - not_null
+
+      - name: channel_title
+        data_type: varchar
+        description: ""
+
+      - name: video_id
+        data_type: varchar
+        description: ""
+        tests:
+          - not_null
+
+      - name: trending_date
+        data_type: date
+        description: ""
+        tests:
+          - not_null
+
+      - name: tags_count
+        data_type: number
+        description: ""
+
+      - name: likes_count
+        data_type: number
+        description: ""
+
+      - name: comment_count
+        data_type: number
+        description: ""
+
+      - name: view_count
+        data_type: number
+        description: ""
+
+      - name: diff_tags
+        data_type: number
+        description: ""
+
+      - name: diff_likes
+        data_type: number
+        description: ""
+
+      - name: diff_comments
+        data_type: number
+        description: ""
+
+      - name: diff_views
+        data_type: number
+        description: ""

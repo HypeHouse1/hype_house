@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: channels_multiple_trending_videos
-    description: "Channel-Centric View with all the stats for each channel that has multiple trending videos."
+  - name: channels_trending_consecutive_days
+    description: "Channel-Centric View with overall statistics on consecutive trending videos."
 
     columns:
       - name: channel_id
@@ -10,10 +10,18 @@ models:
         description: ""
         tests:
           - not_null
-          #- unique
+          - unique
 
       - name: channel_title
         data_type: varchar
+        description: ""
+
+      - name: consecutive_trending_video_count
+        data_type: number
+        description: ""
+
+      - name: avg_trending_days
+        data_type: number
         description: ""
 
       - name: avg_tags_count
