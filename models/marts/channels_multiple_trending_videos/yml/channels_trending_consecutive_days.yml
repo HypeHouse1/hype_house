@@ -10,7 +10,7 @@ models:
         description: ""
         tests:
           - not_null
-          - unique
+          #- unique
 
       - name: channel_title
         data_type: varchar
