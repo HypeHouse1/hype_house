@@ -13,6 +13,8 @@ final as (
         channel_id
         , channel_title
 
+        , round(avg(array_size(tags)), 2) as avg_tags_count
+
         , round(avg(likes_count), 2) as avg_likes_count
         , round(avg(comment_count), 2) as avg_comment_count
         , round(avg(view_count), 2) as avg_view_count
