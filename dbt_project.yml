@@ -44,6 +44,6 @@ models:
       + materialized: table
       channels_multiple_trending_videos:
         + materialized: view
-        itermediate:
+        intermediate:
           + materialized: ephemeral
 
