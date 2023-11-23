@@ -3,6 +3,7 @@ version: 2
 models:
   - name: video_analytics
     description: Table that stores all information about videos during time.
+    
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
