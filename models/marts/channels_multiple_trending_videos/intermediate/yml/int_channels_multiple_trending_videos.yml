@@ -11,10 +11,6 @@ models:
         tests:
           - not_null
 
-      - name: channel_title
-        data_type: varchar
-        description: ""
-
       - name: video_id
         data_type: varchar
         description: ""
