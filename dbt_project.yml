@@ -47,3 +47,5 @@ models:
         intermediate:
           #+materialized: ephemeral
 
+seeds:
+  +schema: seed_data
