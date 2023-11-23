@@ -4,33 +4,33 @@ comment_count as (
 
     select * from {{ ref('stg_comment_count') }}
 
-),
+)
 
-likes_count as (
+, likes_count as (
 
     select * from {{ ref('stg_likes_count') }}
 
-),
+)
 
-view_count as (
+, view_count as (
 
     select * from {{ ref('stg_view_count') }}
 
-),
+)
 
-video_info as (
+, video_info as (
 
     select * from {{ ref('stg_video_info') }}
 
-),
+)
 
-youtube_categories as (
+, youtube_categories as (
 
     select * from {{ ref('youtube_categories') }}
 
-),
+)
 
-final as (
+, final as (
 
     select
 
