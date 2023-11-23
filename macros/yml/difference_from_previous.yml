@@ -1,0 +1,19 @@
+version: 2
+
+macros:
+  - name: difference_from_previous
+    description: Macro used to get the difference from a previous values in a list.
+    docs:
+      show: true
+    arguments:
+      - name: column_name
+        type: string
+        description: Column name or expression to make the calculation on.
+      
+      - name: partition_by
+        type: string
+        description: Column name or expression to partition the list.
+      
+      - name: order_by
+        type: strig 
+        description: Column name or expression to order by the list of values.

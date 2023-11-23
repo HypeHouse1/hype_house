@@ -11,7 +11,6 @@ channels_multiple_trending_videos as (
     select
 
         channel_id
-        , channel_title
         , video_id
 
         , array_agg(trending_date) as trending_dates
@@ -21,7 +20,6 @@ channels_multiple_trending_videos as (
     group by 
 
         channel_id
-        , channel_title
         , video_id
         , partition_id
 
@@ -32,7 +30,6 @@ channels_multiple_trending_videos as (
     select
 
         channel_id
-        , channel_title
         , video_id
 
         , array_union_agg(trending_dates) as trending_dates
@@ -42,7 +39,6 @@ channels_multiple_trending_videos as (
     group by 
 
         channel_id
-        , channel_title
         , video_id
     
     having count(*) > 1
@@ -54,7 +50,6 @@ channels_multiple_trending_videos as (
     select
         
         channel_id
-        , channel_title
         , video_id
         , value::date as trending_date
 
@@ -68,7 +63,6 @@ channels_multiple_trending_videos as (
     select
 
         channels_videos_multiple_trending_gaps.channel_id
-        , channels_videos_multiple_trending_gaps.channel_title
         , channels_videos_multiple_trending_gaps.video_id
         , channels_videos_multiple_trending_gaps.trending_date
 
@@ -78,11 +72,13 @@ channels_multiple_trending_videos as (
         , comment_count
         , view_count
 
-        , tags_count - lag(tags_count, 1, 0) over (partition by channels_videos_multiple_trending_gaps.video_id order by channels_videos_multiple_trending_gaps.trending_date asc) as diff_tags
+        , {{ difference_from_previous('tags_count', 'channels_videos_multiple_trending_gaps.video_id', 'channels_videos_multiple_trending_gaps.trending_date')}} as diff_tags
 
-        , likes_count - lag(likes_count, 1, 0) over (partition by channels_videos_multiple_trending_gaps.video_id order by channels_videos_multiple_trending_gaps.trending_date asc) as diff_likes
-        , comment_count - lag(comment_count, 1, 0) over (partition by channels_videos_multiple_trending_gaps.video_id order by channels_videos_multiple_trending_gaps.trending_date asc) as diff_comments
-        , view_count - lag(view_count, 1, 0) over (partition by channels_videos_multiple_trending_gaps.video_id order by channels_videos_multiple_trending_gaps.trending_date asc) as diff_views
+        , {{ difference_from_previous('likes_count', 'channels_videos_multiple_trending_gaps.video_id', 'channels_videos_multiple_trending_gaps.trending_date')}} as diff_likes
+
+        , {{ difference_from_previous('comment_count', 'channels_videos_multiple_trending_gaps.video_id', 'channels_videos_multiple_trending_gaps.trending_date')}} as diff_comments
+
+        , {{ difference_from_previous('view_count', 'channels_videos_multiple_trending_gaps.video_id', 'channels_videos_multiple_trending_gaps.trending_date')}} as diff_views
 
     from channels_videos_multiple_trending_gaps
 
@@ -93,4 +89,3 @@ channels_multiple_trending_videos as (
 )
 
 select * from final
-order by channel_id, video_id, trending_date

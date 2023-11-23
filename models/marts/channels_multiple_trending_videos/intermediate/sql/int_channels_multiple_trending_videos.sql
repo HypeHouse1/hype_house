@@ -4,14 +4,13 @@ video_analytics as (
 
     select * from {{ ref('video_analytics') }}
 
-),
+)
 
-channel_videos as (
+, channel_videos as (
 
     select
 
         channel_id
-        , channel_title
         , video_id
     
     from video_analytics
@@ -19,35 +18,31 @@ channel_videos as (
     group by 
 
         channel_id
-        , channel_title
         , video_id
 
-),
+)
 
-channels_multiple_trending_videos as (
+, channels_multiple_trending_videos as (
 
     select
 
         channel_id
-        , channel_title
     
     from channel_videos
 
     group by 
 
         channel_id
-        , channel_title
     
     having count(*) > 1
 
-),
+)
 
-final as (
+, final as (
 
     select
 
         video_analytics.channel_id
-        , video_analytics.channel_title
         , video_analytics.video_id
         , video_analytics.trending_date
         , video_analytics.likes_count

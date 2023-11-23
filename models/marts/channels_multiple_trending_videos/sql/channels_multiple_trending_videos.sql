@@ -11,7 +11,6 @@ final as (
     select
 
         channel_id
-        , channel_title
 
         , round(avg(array_size(tags)), 2) as avg_tags_count
 
@@ -24,7 +23,6 @@ final as (
     group by
 
         channel_id
-        , channel_title
 
 )
 

@@ -10,11 +10,7 @@ models:
         description: ""
         tests:
           - not_null
-          #- unique
-
-      - name: channel_title
-        data_type: varchar
-        description: ""
+          - unique
 
       - name: consecutive_trending_video_count
         data_type: number

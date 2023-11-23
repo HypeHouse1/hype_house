@@ -38,12 +38,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   hype_house:
     staging:
-      + materialized: table
-      + schema: staging
+      +materialized: table
+      +schema: staging
     marts:
-      + materialized: table
+      +materialized: table
       channels_multiple_trending_videos:
-        + materialized: view
-        itermediate:
-          + materialized: ephemeral
+        +materialized: view
+        intermediate:
+          #+materialized: ephemeral
 
