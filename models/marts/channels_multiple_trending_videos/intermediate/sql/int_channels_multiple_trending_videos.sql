@@ -11,7 +11,6 @@ video_analytics as (
     select
 
         channel_id
-        , channel_title
         , video_id
     
     from video_analytics
@@ -19,7 +18,6 @@ video_analytics as (
     group by 
 
         channel_id
-        , channel_title
         , video_id
 
 )
@@ -29,14 +27,12 @@ video_analytics as (
     select
 
         channel_id
-        , channel_title
     
     from channel_videos
 
     group by 
 
         channel_id
-        , channel_title
     
     having count(*) > 1
 
@@ -47,7 +43,6 @@ video_analytics as (
     select
 
         video_analytics.channel_id
-        , video_analytics.channel_title
         , video_analytics.video_id
         , video_analytics.trending_date
         , video_analytics.likes_count
