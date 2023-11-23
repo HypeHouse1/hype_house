@@ -4,9 +4,9 @@ video_info as (
 
     select * from {{ source('youtube_hype_house', 'video_info_json') }}
 
-),
+)
 
-transformed as (
+, transformed as (
 
     select 
         
@@ -26,9 +26,9 @@ transformed as (
     from video_info
         , lateral flatten(input => json_data:data)
 
-),
+)
 
-final as (
+, final as (
 
     select distinct
 

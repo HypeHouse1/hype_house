@@ -4,9 +4,9 @@ likes_count as (
 
     select * from {{ source('youtube_hype_house', 'likes_count_json') }}
 
-),
+)
 
-transformed as (
+, transformed as (
 
     select 
         
@@ -17,9 +17,9 @@ transformed as (
     from youtube_raw.public.likes_count_json
         , lateral flatten(input => json_data:data)
 
-),
+)
 
-final as (
+, final as (
 
     select
 

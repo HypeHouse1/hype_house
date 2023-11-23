@@ -4,9 +4,9 @@ comment_count as (
 
     select * from {{ source('youtube_hype_house', 'comment_count_json') }}
 
-),
+)
 
-transformed as (
+, transformed as (
 
     select 
         
@@ -17,9 +17,9 @@ transformed as (
     from comment_count
         , lateral flatten(input => json_data:data)
 
-),
+)
 
-final as (
+, final as (
 
     select
 
