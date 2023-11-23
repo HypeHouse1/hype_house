@@ -4,9 +4,9 @@ video_analytics as (
 
     select * from {{ ref('video_analytics') }}
 
-),
+)
 
-channel_videos as (
+, channel_videos as (
 
     select
 
@@ -22,9 +22,9 @@ channel_videos as (
         , channel_title
         , video_id
 
-),
+)
 
-channels_multiple_trending_videos as (
+, channels_multiple_trending_videos as (
 
     select
 
@@ -40,9 +40,9 @@ channels_multiple_trending_videos as (
     
     having count(*) > 1
 
-),
+)
 
-final as (
+, final as (
 
     select
 
