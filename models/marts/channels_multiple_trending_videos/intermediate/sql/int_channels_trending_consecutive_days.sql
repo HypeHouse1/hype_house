@@ -11,7 +11,6 @@ channels_multiple_trending_videos as (
     select 
 
         channel_id
-        , channel_title
         , video_id
     
     from channels_multiple_trending_videos
@@ -19,7 +18,6 @@ channels_multiple_trending_videos as (
     group by 
 
         channel_id
-        , channel_title
         , video_id
         , partition_id
 
@@ -32,7 +30,6 @@ channels_multiple_trending_videos as (
     select
 
         channel_id
-        , channel_title
         , video_id
 
     from channels_trending_consecutive_days
@@ -40,7 +37,6 @@ channels_multiple_trending_videos as (
     group by 
 
         channel_id
-        , channel_title
         , video_id
     
     having count(*) = 1
@@ -52,7 +48,6 @@ channels_multiple_trending_videos as (
     select
 
         channels_multiple_trending_videos.channel_id
-        , channels_multiple_trending_videos.channel_title
         , channels_multiple_trending_videos.video_id
         , channels_multiple_trending_videos.trending_date 
         

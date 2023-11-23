@@ -11,7 +11,6 @@ channels_multiple_trending_videos as (
     select
 
         channel_id
-        , channel_title
         , video_id
 
         , array_agg(trending_date) as trending_dates
@@ -21,7 +20,6 @@ channels_multiple_trending_videos as (
     group by 
 
         channel_id
-        , channel_title
         , video_id
         , partition_id
 
@@ -32,7 +30,6 @@ channels_multiple_trending_videos as (
     select
 
         channel_id
-        , channel_title
         , video_id
 
         , array_union_agg(trending_dates) as trending_dates
@@ -42,7 +39,6 @@ channels_multiple_trending_videos as (
     group by 
 
         channel_id
-        , channel_title
         , video_id
     
     having count(*) > 1
@@ -54,7 +50,6 @@ channels_multiple_trending_videos as (
     select
         
         channel_id
-        , channel_title
         , video_id
         , value::date as trending_date
 
@@ -68,7 +63,6 @@ channels_multiple_trending_videos as (
     select
 
         channels_videos_multiple_trending_gaps.channel_id
-        , channels_videos_multiple_trending_gaps.channel_title
         , channels_videos_multiple_trending_gaps.video_id
         , channels_videos_multiple_trending_gaps.trending_date
 
@@ -93,4 +87,3 @@ channels_multiple_trending_videos as (
 )
 
 select * from final
-order by channel_id, video_id, trending_date

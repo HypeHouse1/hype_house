@@ -11,7 +11,6 @@ channels_trending_consecutive_days as (
     select
 
         channel_id
-        , channel_title
         , video_id
         , trending_date
 

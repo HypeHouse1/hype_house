@@ -11,7 +11,6 @@ channels_trending_consecutive_days as (
     select
 
         channel_id
-        , channel_title
         , video_id
 
         , count(trending_date) as trending_days
@@ -26,7 +25,6 @@ channels_trending_consecutive_days as (
     group by 
 
         channel_id
-        , channel_title
         , video_id
 
 )
@@ -36,7 +34,6 @@ channels_trending_consecutive_days as (
     select
 
         channel_id
-        , channel_title
 
         , count(video_id) as consecutive_trending_video_count
         , round(avg(trending_days), 2) as avg_trending_days
@@ -52,7 +49,6 @@ channels_trending_consecutive_days as (
     group by 
 
         channel_id
-        , channel_title
 
 )
 
