@@ -1,0 +1,16 @@
+version: 2
+
+macros:
+  - name: clean_stale_models
+    description: Macro used to clean stale models in the targed environment.
+    docs:
+      show: true
+
+    arguments:
+      - name: days
+        type: number
+        description: Amount of days a model needs to be stale fro cleaning.
+        
+      - name: clean
+        type: bool
+        description: Set to true to drop stale models or false to just list them. Defaults to false.
