@@ -2,6 +2,8 @@ version: 2
 
 seeds:
   - name: youtube_categories
+    description: Table that stores the list of youtube categories with their ids.
+    
     config:
       column_types: 
         category_id: number
