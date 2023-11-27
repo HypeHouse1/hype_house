@@ -11,6 +11,6 @@ macros:
         type: number
         description: Amount of days a model needs to be stale fro cleaning.
         
-      - name: clean
+      - name: dry_run
         type: bool
-        description: Set to true to drop stale models or false to just list them. Defaults to false.
+        description: Set to true to just list stale models without dropping them. Defaults to false.
