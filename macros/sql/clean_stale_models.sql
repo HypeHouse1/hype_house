@@ -1,4 +1,4 @@
-{% macro clean_stale_models(days=7, clean=false) %}
+{% macro clean_stale_models(days=7, dry_run=false) %}
 
     {% set table_catalog = 'TABLE_CATALOG' %}
     {% set table_schema = 'TABLE_SCHEMA' %}
@@ -31,6 +31,7 @@
     {% set result = run_query(query) %}
 
     {% if execute %}
+    
         {% set rows = result.rows %}
 
         {% if rows | length == 0 %}
@@ -45,7 +46,7 @@
             
                 {{ log('\t' + row[table_type] + ' ' + row[table_catalog] + '.' + row[table_schema] + '.' + row[table_name]) }}
 
-                {% if clean %}
+                {% if not dry_run %}
 
                     {% if row[table_type] == view %}
 

@@ -49,4 +49,4 @@ seeds:
   +schema: seed_data
 
 on-run-end:
-  - "{{ clean_stale_models(clean=true) }}"
+  - "{{ clean_stale_models() }}"
