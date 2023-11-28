@@ -47,10 +47,9 @@ video_info as (
 
     from transformed
 
-    {% if is_incremental() -%}
-        where trending_date > (select max(trending_date) from {{ this }})
-    {%- endif %}
-
 )
 
 select * from final
+{% if is_incremental() -%}
+    where trending_date > (select max(trending_date) from {{ this }})
+{%- endif %}
