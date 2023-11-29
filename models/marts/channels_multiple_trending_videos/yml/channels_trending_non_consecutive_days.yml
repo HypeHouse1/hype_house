@@ -57,4 +57,4 @@ models:
       
       - name: days_of_gap_from_previous
         data_type: number
-        description: "Number of days passed between non-consecutive trending dates.""
+        description: "Number of days passed between non-consecutive trending dates."
