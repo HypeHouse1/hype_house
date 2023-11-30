@@ -34,7 +34,7 @@
     
         {% set rows = result.rows %}
 
-        {% if rows | length == 0 %}
+        {% if length(rows) == 0 %}
 
             {{ log('There are no stale models.') }}
 
