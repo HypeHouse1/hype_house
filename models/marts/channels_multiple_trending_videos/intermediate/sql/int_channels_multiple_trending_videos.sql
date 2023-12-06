@@ -12,10 +12,10 @@ video_analytics as (
 
         channel_id
         , video_id
-    
+
     from video_analytics
 
-    group by 
+    group by
 
         channel_id
         , video_id
@@ -24,16 +24,15 @@ video_analytics as (
 
 , channels_multiple_trending_videos as (
 
-    select
+    select channel_id
 
-        channel_id
-    
+
     from channel_videos
 
-    group by 
+    group by
 
         channel_id
-    
+
     having count(*) > 1
 
 )
@@ -49,11 +48,11 @@ video_analytics as (
         , video_analytics.comment_count
         , video_analytics.view_count
         , video_analytics.tags
-        
+
         , datediff(day, '2023-01-01', video_analytics.trending_date) - row_number() over (
-            partition by video_id 
-            order by trending_date asc
-        ) as partition_id 
+            partition by video_analytics.video_id
+            order by video_analytics.trending_date asc
+        ) as partition_id
 
     from channels_multiple_trending_videos
 

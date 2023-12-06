@@ -8,14 +8,14 @@ likes_count as (
 
 , transformed as (
 
-    select 
-        
-        value:video_id_for_client_HyPeHoUsE::string as video_id
+    select
+
+        flattened.value:video_id_for_client_HyPeHoUsE::string              as video_id
         , {{ get_date_from_path('file_path') }} as trending_date
-        , value:likes_for_client_HyPeHoUsE as likes_count
-    
-    from youtube_raw.public.likes_count_json
-        , lateral flatten(input => json_data:data)
+        , flattened.value:likes_for_client_HyPeHoUsE                       as likes_count
+
+    from likes_count
+    , lateral flatten(input => json_data:data) as flattened
 
 )
 
@@ -28,7 +28,7 @@ likes_count as (
         , {{ cast_to_number('likes_count') }} as likes_count
 
     from transformed
-    group by 
+    group by
 
         video_id
         , trending_date

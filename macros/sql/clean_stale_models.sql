@@ -70,7 +70,7 @@
 
                     {{ run_query(query) }}
 
-                    {{ log('Dropped ' + row[table_type] + ' ' + row[table_catalog] + '.' + row[table_schema] + '.' + row[table_name])}}
+                    {{ log('Dropped ' + row[table_type] + ' ' + row[table_catalog] + '.' + row[table_schema] + '.' + row[table_name]) }}
                 
                 {% endif %}
             

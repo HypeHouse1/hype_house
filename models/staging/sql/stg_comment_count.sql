@@ -8,14 +8,14 @@ comment_count as (
 
 , transformed as (
 
-    select 
-        
-        value:video_id_for_client_HyPeHoUsE::string as video_id
+    select
+
+        flattened.value:video_id_for_client_HyPeHoUsE::string              as video_id
         , {{ get_date_from_path('file_path') }} as trending_date
-        , value:comment_count_for_client_HyPeHoUsE as comment_count
+        , flattened.value:comment_count_for_client_HyPeHoUsE               as comment_count
 
     from comment_count
-        , lateral flatten(input => json_data:data)
+    , lateral flatten(input => json_data:data) as flattened
 
 )
 
@@ -28,8 +28,8 @@ comment_count as (
         , {{ cast_to_number('comment_count') }} as comment_count
 
     from transformed
-    group by 
-    
+    group by
+
         video_id
         , trending_date
         , comment_count
